@@ -1,0 +1,31 @@
+body {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(255, 0, 102, 0.5);
+  background-image: radial-gradient(circle at bottom left, rgba(255,255,0,.9), rgba(255,255,0,0) 70%), 
+    radial-gradient(circle at top left, rgba(255,0,0,1), rgba(255,0,0,0) 70%), 
+    radial-gradient(circle at center right, rgba(255,0,255,.8), rgba(255,0,255,0) 50%);
+  background-size: 200% 200%;
+  animation: movement 30s ease infinite alternate-reverse;
+}
+@keyframes movement {
+  0%{background-position:0% 0%}
+  25%{background-position:50% 0%}
+  50%{background-position:100% 50%}
+  75%{background-position:50% 100%}
+  100%{background-position:100% 100%}
+}
+main {
+  margin: 0; padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.svelte-br8zui{color:red}
