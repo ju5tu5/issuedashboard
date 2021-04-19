@@ -73,3 +73,39 @@ io.on('connection', (socket) => {
 http.listen(port, () => {
   console.log('listening on port ', port)
 })
+
+
+const { graphql } = require('@octokit/graphql')
+const graphqlWithAuth = graphql.defaults({
+  headers: {
+    authorization: 'token ' + process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+  }
+})
+graphql(`{
+  repository(owner: "cmda-minor-web", name: "real-time-web-2021") {
+    name
+    forkCount
+    forks(first: 44) {
+      totalCount
+      nodes {
+        nameWithOwner
+        issues(first: 100) {
+          edges {
+            node {
+              id
+              author {
+                login
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  }`)
+  .then(result => {
+    console.log(result)
+  })
+  .catch(error => {
+    console.log('GitHub API Request failed: ', error.request, '\n', error.message)
+  })
