@@ -1,0 +1,19 @@
+<%- include('../partials/head')-%>
+
+<main>
+  <section>
+    <h2>Issue Dashboard</h2>
+    <p>Gebruik onderstaand formulier om in te loggen. Dat kan natuurlijk alleen als je het supergeheime wachtwoord weet.</p>
+    <form class="login" action="/" method="POST">
+      <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="off">
+      <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+      <label for="submit"></label>
+        <button id="submit" type="submit">Inloggen</button>
+    </form>
+    <p class="loginmessage"></p>
+  </section>
+</main>
+
+<%- include('../partials/foot')-%>

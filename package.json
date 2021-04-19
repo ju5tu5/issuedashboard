@@ -2,10 +2,9 @@
   "name": "issuedashboard",
   "version": "0.0.1",
   "description": "It's a dashboard to keep a tab on issues created by repository owners that forked the passed repository. We use this during peer review class.",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack serve --mode development --env development --content-base public",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,18 +26,11 @@
   "homepage": "https://github.com/ju5tu5/issuedashboard#readme",
   "dependencies": {
     "@octokit/graphql": "^4.6.1",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "memorystore": "^1.6.6",
     "socket.io": "^4.0.1"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.2.2",
-    "dotenv-webpack": "^7.0.2",
-    "mini-css-extract-plugin": "^1.5.0",
-    "style-loader": "^2.0.0",
-    "svelte": "^3.37.0",
-    "svelte-loader": "^3.1.1",
-    "webpack": "^5.33.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
   }
 }
