@@ -1,4 +1,5 @@
 // Constants (in order of appearance)
+require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const app = express()
@@ -8,6 +9,8 @@ const routes = require('./routes/index')
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const port = process.env.PORT || 4242
+
+const { graphql } = require('@octokit/graphql')
 
 // Hook up ejs
 app.set('views', path.join(__dirname, 'views'))
@@ -75,13 +78,13 @@ http.listen(port, () => {
 })
 
 
-const { graphql } = require('@octokit/graphql')
+// Spike to test github GraphQL API
 const graphqlWithAuth = graphql.defaults({
   headers: {
     authorization: 'token ' + process.env.GITHUB_PERSONAL_ACCESS_TOKEN
   }
 })
-graphql(`{
+graphqlWithAuth(`{
   repository(owner: "cmda-minor-web", name: "real-time-web-2021") {
     name
     forkCount
